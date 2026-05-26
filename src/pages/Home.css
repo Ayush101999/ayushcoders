@@ -1,0 +1,799 @@
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  background: var(--dark-bg);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  overflow: hidden;
+}
+
+/* Floating Logos Animation */
+.floating-logos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-logo {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+}
+
+.floating-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Position each logo at different starting points */
+.floating-logo-1 {
+  left: 10%;
+  top: -100px;
+}
+
+.floating-logo-2 {
+  left: 25%;
+  top: -100px;
+}
+
+.floating-logo-3 {
+  left: 45%;
+  top: -100px;
+}
+
+.floating-logo-4 {
+  left: 65%;
+  top: -100px;
+}
+
+.floating-logo-5 {
+  left: 80%;
+  top: -100px;
+}
+
+.floating-logo-6 {
+  left: 90%;
+  top: -100px;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: float 20s infinite ease-in-out;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: rgba(59, 130, 246, 0.3);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(139, 92, 246, 0.3);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 5s;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: rgba(6, 182, 212, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 50px) scale(0.9);
+  }
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  max-width: 900px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero-logo {
+  margin-bottom: 30px;
+}
+
+.hero-logo img {
+  width: auto;
+  height: 120px;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(255, 255, 255, 0.3));
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+.gradient-text {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Section Background for Floating Logos */
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section {
+  position: relative;
+}
+
+.section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Features Section */
+.features {
+  background: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-1);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.feature-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Technologies Section */
+.technologies {
+  background: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.technologies::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+/* Tech Slider */
+.tech-slider-container {
+  margin-top: 60px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.tech-slider-container::before,
+.tech-slider-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-slider-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--light-bg), transparent);
+}
+
+.tech-slider-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--light-bg), transparent);
+}
+
+.tech-slider {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+}
+
+.tech-slide {
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.tech-slide-content {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tech-slide-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.tech-slide:hover .tech-slide-content {
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 50px rgba(59, 130, 246, 0.3);
+  transform: translateY(-10px);
+}
+
+.tech-slide:hover .tech-slide-content::before {
+  opacity: 0.1;
+}
+
+.tech-slide-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(99, 102, 241, 0.3));
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Make ChatGPT logo white */
+.tech-slide-icon[alt="ChatGPT"] {
+  filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(99, 102, 241, 0.3));
+}
+
+.tech-slide:hover .tech-slide-icon {
+  filter: drop-shadow(0 8px 20px rgba(99, 102, 241, 0.5));
+  transform: scale(1.1);
+}
+
+.tech-slide:hover .tech-slide-icon[alt="ChatGPT"] {
+  filter: brightness(0) invert(1) drop-shadow(0 8px 20px rgba(99, 102, 241, 0.5));
+  transform: scale(1.1);
+}
+
+.tech-slide-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+/* Courses Section */
+.courses {
+  background: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.courses::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.course-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  position: relative;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.course-card:hover::before {
+  opacity: 0.05;
+}
+
+.course-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+}
+
+.course-image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: var(--light-bg);
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.1);
+}
+
+.course-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+}
+
+.course-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+.course-body {
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.course-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.course-body p {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.course-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.course-duration,
+.course-level {
+  background: var(--light-bg);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+}
+
+.course-card .btn {
+  width: 100%;
+}
+
+/* Instructor Section */
+.instructor {
+  background: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.instructor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.instructor-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 0;
+  position: relative;
+}
+
+.instructor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-1);
+}
+
+.instructor-image-wrapper {
+  position: relative;
+  background: var(--dark-bg);
+  background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.instructor-photo {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 4px solid var(--border-color);
+}
+
+.instructor-badge {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
+}
+
+.instructor-details {
+  padding: 50px 40px;
+}
+
+.instructor-details h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.instructor-role {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.instructor-highlights {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--light-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.highlight-icon {
+  color: #fbbf24;
+  font-size: 1.2rem;
+}
+
+.highlight span {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.instructor-description {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.instructor-description strong {
+  color: var(--text-dark);
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA Section */
+.cta {
+  background: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-1);
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: var(--text-light);
+}
+
+.btn-large {
+  padding: 15px 50px;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .features-grid,
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instructor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .instructor-image-wrapper {
+    padding: 30px;
+  }
+
+  .instructor-details {
+    padding: 30px 20px;
+  }
+
+  .instructor-details h3 {
+    font-size: 2rem;
+  }
+
+  .instructor-role {
+    font-size: 1rem;
+  }
+
+  .instructor-highlights {
+    gap: 15px;
+  }
+
+  .highlight {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Made with Bob */
